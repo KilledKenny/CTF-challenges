@@ -1,0 +1,1 @@
+{{define "PAGE"}} Welcome to the alpha of my cool new CMS {{end}}

@@ -1,0 +1,9 @@
+{{define "PAGE"}} Code
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<pre><code class="go">
+{{ $a := ReadFile "main.go" }}{{printf "%s" $a}}
+</code>
+</pre>
+</code>
+ {{end}}

@@ -1,0 +1,1 @@
+{{define "PAGE"}} This is an example page {{end}}

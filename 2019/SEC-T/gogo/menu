@@ -1,0 +1,33 @@
+<!DOCTYPE html>{{$r := .r}}
+<html>
+<head>
+	<title>Cool page | {{.r.URL.Path}}</title>
+	<meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<header>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Home</a>
+    </div>
+    <ul class="nav navbar-nav">
+    {{$d := printf "www/.%s" $r.URL.Path }}
+    {{range $a := Dir $d}}
+    {{if ne (StrIndex $a.Name ".") 0}}
+	    {{if $a.IsDir}}
+			<li><a href="{{$path := printf "%s/%s" $r.URL.Path $a.Name }}{{ReplaceAll $path "//" "/"}}">{{$a.Name}}</a></li>
+		{{else}}
+			<li><a href="{{$r.URL.Path}}?page={{$a.Name}}">{{$a.Name}}</a></li>
+		{{end}}
+	{{end}}
+	{{end}}
+    </ul>
+  </div>
+</nav>
+{{template "PAGE"}}
+</header>
+</body>
+</html>
